@@ -1,6 +1,6 @@
 # Add dependencies
-import csv
-import os
+import csv#or comma seperated values
+import os #or also know as operating system 
 
 # Assign a variable to load a file from an indirect path.
 file_to_load = os.path.join("Resources", "election_results.csv")
@@ -9,7 +9,8 @@ file_to_save = os.path.join("analysis", "election_analysis.txt")
 
 
 
-# Initialize a total vote counter.
+# Initialize a total vote counter. this is necessary to start a
+#accumulator
 total_votes = 0
 
 # Create variable for list of Candidate Options.
@@ -26,18 +27,21 @@ winning_percentage = 0
 
 
 # Open the election results and read the file.
+#with open allows so you dont have to always close the file
 with open(file_to_load) as election_data:
     # Read the file object with the reader function.
     file_reader = csv.reader(election_data)
 
-    # Print the header row.
+    #read the header row
     headers = next(file_reader)
+    # Print the header row in the csv file
     print(headers)
 
 
     # Print (Iterate) each row in the CSV file.
     for row in file_reader:
-        # Add to the total vote count.
+        # Add to the total vote count aka the accumulator or the 
+        # variable we created earlier.
         total_votes += 1
 
         # Print the candidate name from each row.
@@ -69,7 +73,8 @@ with open(file_to_save, "w") as txt_file:
 
 
 
-    # Determine the percentage of votes for each candidate by looping through the counts.
+    # Determine the percentage of votes for each candidate by
+    #  looping through the counts.
     # Iterate through the candidate list.
     for candidate_name in candidate_votes:
         # Retrieve vote count of a candidate.
@@ -78,7 +83,8 @@ with open(file_to_save, "w") as txt_file:
         # Calculate the percentage of votes.
         vote_percentage = float(votes) / float(total_votes) * 100
 
-        # Print each candidate, their voter count, and percentage to the terminal.
+        # Print each candidate, their voter count, and 
+        # percentage to the terminal.
         candidate_results = (
             f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 
