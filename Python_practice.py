@@ -53,6 +53,10 @@ for num in range(5):
 # Inside the range() function, we get the length of the list of counties, which is the integer 3.
 # Then, we iterate through the list, where the variable i is equal to 0 for the first index. The 0 is passed into the print(counties[i]) statement, where i = 0, and "Arapahoe" is printed.
 # This process is continued until all three items, or counties, in the list are printed to the screen.
+
+#this code is using also a for loop but instead of hard coding the index
+#we use the len method to retrieve the lenght of indexes and retrieve all 
+#the counties
 for i in range(len(counties)):
     print(counties[i])
 # exercise using tuple first step create the tuple
